@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>ComuniQ: IFSul Gravataí</title>
+  <%- include('partials/head'); %>
+
+  <style>
+    body {
+      background-color: #7ea9d9; 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center; 
+      justify-content: flex-start; 
+      margin: 30px;
+      gap: 60px; 
+    }
+
+    h1 {
+      color: white;
+      font-weight: bold;
+      font-size: 60px;
+      max-width: 500px; 
+    }
+
+    .botoes-centrais {
+      display: flex;
+      flex-direction:row; 
+      gap: 20px;
+    }
+
+    .botao-grande {
+      background-color: #004aad; 
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 20px 60px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 300px; 
+      text-align: center;
+    }
+
+    .botao-grande:hover {
+      background-color: #003080;
+    }
+
+    h2 {
+      margin-left: 30px;
+      font-family: arial black;
+      color: white;
+    }
+
+    p {
+      color: white;
+      margin: 0 30px 20px;
+      font-size: 18px;
+      max-width: 500px;
+      text-align: justify;
+      
+    }
+    .sobre{
+background-color: #014aa3;
+width: 550px;
+position: relative;
+left:30px;
+align-items: center; 
+  justify-content: center; 
+  text-align: center;
+height:200px;
+margin: 40px auto;
+
+    }
+  </style>
+</head>
+<body>
+  <header id="menu" style="position: relative;"><%- include('partials/menu'); %></header>
+
+  <div class="hero">
+    <h1>
+      Olá usuário!<br>
+      Bem-vindo ao <br>
+      <strong>ComuniQ: IFSul Gravataí!</strong>
+    </h1>
+
+    <div class="botoes-centrais">
+      <a href="/estudante/home_page">
+        <button class="botao-grande">Estudante</button>
+      </a>
+      <a href="/adm/home_page">
+        <button class="botao-grande">Coordenador</button>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="sobre">
+    <h2>Sobre a Plataforma</h2>
+    <p>
+      O ComuniQ IFSul Gravataí é uma aplicação para simplificar a comunicação entre a gestão da escola com os seus estudantes, com o fim de fazer que os alunos se sintam mais acolhidos e pertencidos pelo ambiente escolar acadêmico que o cerca.
+    </p>
+  </div>
+
+  
+</body>
+</html>

@@ -1,0 +1,308 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Tela com Formulário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    #popup {
+      display: none; /* Inicialmente, a tela está oculta */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #popup h2 {
+      margin-top: 0;
+    }
+    #overlay {
+      display: none; /* Inicialmente, a sobreposição está oculta */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h1>OBSERVAÇÃO PARA O MEIO SOCIAL</h1>
+
+
+  <button id="toggleButton">AOS MEUS COLEGAS</button>
+
+  <div id="overlay"></div>
+  <div id="popup">
+    <form id="form" enctype>
+    
+      <label for="comentario">Tenho problemas de convívio diário::</label>
+      <textarea id="comentario" name="social_colegas_convivio_diario_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Tenho problemas de exclusão social:</label>
+      <textarea id="comentario" name="social_colegas_exclusao_social_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Tenho probelmas com trabalhos escolares:</label>
+      <textarea id="comentario" name="social_colegas_trab_escolares_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Fui vítima de buling, humilhação, racismo, gênero ou assédio:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Outra situação:</label>
+      <textarea id="comentario" name="social_colegas_outro_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+
+
+  <button id="toggleButton2">AOS SERVIDORES E ADMINISTRADORES</button>
+
+  <div id="overlay"></div>
+  <div id="popup">
+    <form id="form">
+      
+      <label for="comentario">Não me sinto bem tratado pelos funcionarios da escola</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Fui vítima de abuso de autoridade, humilhação, racismo, gênero ou assédio:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Outra situação:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+
+  <button id="toggleButton3">AOS PROFESSORES</button>
+
+  <div id="overlay"></div>
+  <div id="popup">
+    <form id="form">
+      
+      <label for="comentario">Não me sinto valorizado pelso docentes</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Fui vítima de abuso de autoridade, humilhação, racismo, gênero ou assédio:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Outra situação:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      
+      <button type="submit">Enviar</button>
+
+
+
+
+
+      <h1>OBSERVAÇÃO PARA OS ESPAÇOS DO CAMPUS</h1>
+
+
+      <button id="toggleButton">AOS ESPAÇOS DE LAZER</button>
+    
+      <div id="overlay"></div>
+      <div id="popup">
+        <form id="form" enctype>
+        
+          <label for="comentario">Quero que tenho um espaço de lazer a mais no campus (que espaço é esse? descreva)</label>
+          <textarea id="comentario" name="social_colegas_convivio_diario_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+          
+          <label for="comentario">O campus precisa melhorar os espaçso de lazer jé existentes (apresente sujestões para locais específicos)</label>
+          <textarea id="comentario" name="social_colegas_exclusao_social_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+          
+          <label for="comentario">Sobre es´paçso espefícos: quadra de esportes, locais com puff e árvores</label>
+          <textarea id="comentario" name="social_colegas_exclusao_social_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+
+          <label for="comentario">Sobre outros lugares:</label>
+          <textarea id="comentario" name="social_colegas_outro_comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+          
+          
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    
+    
+    
+      <button id="toggleButton2">AOS ESPAÇOS DE APRENDIZAGEM</button>
+    
+      <div id="overlay"></div>
+      <div id="popup">
+        <form id="form">
+          
+          <label for="comentario">Sobre as salas de aula e laboratórios</label>
+          <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+
+          <label for="comentario">Sobre a biblioteca Maria Carolina de Jesus</label>
+          <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+
+          <label for="comentario">Sobre a sala de estudos e outros espaços de estudos</label>
+          <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+          
+          <label for="comentario">Sobre outros lugares:</label>
+          <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+          
+          
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    
+  
+
+
+
+<h1>QUESTIONAMENTOS NO MEIO ADMINISTRATIVO PEDAGÓGICO</h1>
+
+
+      <label for="comentario">Tenho uma observação sobre as notas que os profesor x envia com relação ao prazo ou métodos de avalização:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+
+      <label for="comentario">Tenho uma observação sobre a didática das aulas:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+
+      <label for="comentario">Uma cr´tiica sobre o trabalho dos servidores:</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Não sinto meus problemas bem atendidos pelos coordenadores das coordenadorias</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+      
+      <label for="comentario">Não sino que os coordenadores desempenham bem seus trbalahso</label>
+      <textarea id="comentario" name="comentario" placeholder="Escreva aqui seu comentário..."></textarea>
+
+    </form>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+
+    toggleButton.addEventListener('click', () => {
+      const isVisible = popup.style.display === 'block';
+      popup.style.display = isVisible ? 'none' : 'block';
+      overlay.style.display = isVisible ? 'none' : 'block';
+      toggleButton.textContent = isVisible ? 'Abrir Tela' : 'Fechar Tela';
+    });
+
+    overlay.addEventListener('click', () => {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+      toggleButton.textContent = 'Abrir Tela';
+    });
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Formulário enviado com sucesso!');
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+      toggleButton.textContent = 'Abrir Tela';
+    });
+
+
+
+
+    const toggleButton = document.getElementById('toggleButton2');
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+
+    toggleButton.addEventListener('click', () => {
+      const isVisible = popup.style.display === 'block';
+      popup.style.display = isVisible ? 'none' : 'block';
+      overlay.style.display = isVisible ? 'none' : 'block';
+      toggleButton.textContent = isVisible ? 'Abrir Tela' : 'Fechar Tela';
+    });
+
+    overlay.addEventListener('click', () => {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+      toggleButton.textContent = 'Abrir Tela';
+    });
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Formulário enviado com sucesso!');
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+      toggleButton.textContent = 'Abrir Tela';
+    });
+
+
+    const toggleButton = document.getElementById('toggleButton3');
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+
+    toggleButton.addEventListener('click', () => {
+      const isVisible = popup.style.display === 'block';
+      popup.style.display = isVisible ? 'none' : 'block';
+      overlay.style.display = isVisible ? 'none' : 'block';
+      toggleButton.textContent = isVisible ? 'Abrir Tela' : 'Fechar Tela';
+    });
+
+    overlay.addEventListener('click', () => {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+      toggleButton.textContent = 'Abrir Tela';
+    });
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Formulário enviado com sucesso!');
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+      toggleButton.textContent = 'Abrir Tela';
+    });
+  </script>
+</body>
+</html>

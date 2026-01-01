@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head> 
+    <%- include('head'); %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0 40px;
+            color: #FFD700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .form-group label {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-color: #FFD700;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+        }
+
+        button[type="submit"] {
+            background-color: #FFD700;
+            color: #1e3c72;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ffbb33;
+        }
+
+        .btn-secondary {
+            background-color: #555;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 20px;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #777;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .form-group label,
+            .form-control {
+                font-size: 1rem;
+            }
+
+            button[type="submit"] {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <%- include('menu'); %>
+    </header>
+
+    <div class="container">
+        <h2>Houve problemas com sua compra? Reinforme os dados no formulário abaixo.</h2>
+
+        <% dadosProduto.forEach(function(dados) { %>
+            <form action="/editar/<%= dados.id%>" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="produto">Transcrição do produto:</label>
+                    <input type="text" class="form-control" name="produto" value="<%= dados.produto %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor do produto:</label>
+                    <input type="number" class="form-control" name="valor" value="<%= dados.valor %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidade">Quantidade de itens:</label>
+                    <input type="number" class="form-control" name="quantidade" value="<%= dados.quantidade %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="data">Data de realização da compra:</label>
+                    <input type="datetime-local" class="form-control" name="data" value="<%= dados.data %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="arquivo">Imagem atual de seu produto:</label>
+                    <% if (dados.arquivo) { %>
+                        <img src="/imagens/<%= dados.arquivo %>" alt="Imagem do Produto" style="max-width: 200px; display: block; margin-bottom: 10px;">
+                    <% } %>
+                    <input type="text" class="form-control" value="<%= dados.arquivo %>" readonly>
+                    <input type="hidden" name="arquivo_atual" value="<%= dados.arquivo %>">
+                    <input type="file" class="form-control" name="arquivo" id="arquivo" style="display: none;" onchange="updateFileName()">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('arquivo').click();">
+                        Cadastre uma imagem diferente
+                    </button>
+                </div>
+
+                <script>
+                    function updateFileName() {
+                        var fileInput = document.getElementById('arquivo');
+                        var button = document.querySelector('button[type="button"]');
+                        if (fileInput.files.length > 0) {
+                            button.textContent = fileInput.files[0].name;
+                        }
+                    }
+                </script>
+
+                <button type="submit" class="btn btn-primary">Envio de atualização</button>
+            </form>
+        <% }) %>
+
+        <button><a href="/" class="material-icons">arrow_back</a></button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

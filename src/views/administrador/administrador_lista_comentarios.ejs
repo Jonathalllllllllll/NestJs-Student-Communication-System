@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <%- include('../partials/head'); %>
+  <style>
+    body {
+      background-color: #94b6da; 
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+   
+    .comentario-box {
+      background-color: #014aa3;
+      color: white;
+      border-radius: 10px;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .comentario-texto {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .comentario-btn a {
+      background-color: white;
+      color: #014aa3;
+      font-weight: bold;
+      padding: 5px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .comentario-btn a:hover {
+      background-color: #e6e6e6;
+      color: #014aa3;
+    }
+
+    .comentario-data {
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .comentario-data p {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .comentario-data span {
+      background-color: white;
+      color: #014aa3;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    #t11 {
+      background-color: white;
+      color: black;
+      font-size: 25px;
+      height: 70px;
+      width: 100%;
+      font-family: Arial Black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .adicionar-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .comentario-status {
+  text-align: center;
+  min-width: 120px;
+}
+
+.comentario-status p {
+  margin: 0;
+  font-weight: bold; 
+}
+
+.comentario-status span {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white; 
+}
+
+.comentario-status span.resolvido {
+  background-color: #28a745; 
+}
+
+.comentario-status span.pendente {
+  background-color: #dc3545; 
+}
+  </style>
+</head>
+
+<body>
+  <header><%- include('../partials/menu_adm'); %></header>
+
+  <div class="container mt-5">
+    <% let totalcomentarios = dadosrecebidos.length; %>
+    <h2 id="t11">Você tem o total de <%= totalcomentarios %> comentário<%= totalcomentarios !==1 ? 's' : '' %> enviados pelos estudantes para o seu eixo</h2>
+
+    <% if (totalcomentarios !== 0) { %>
+      <% dadosrecebidos.forEach(function(item) { %>
+        <div class="comentario-box">
+          <div class="comentario-texto">
+            <%= item.nome_E %> enviou um comentário 
+          </div>
+          <div class="comentario-btn">
+            <a href="/adm/forum/front_end/<%= item.id_comentario_E %>">Acessar</a>
+          </div>
+          <div class="comentario-status">
+            <p>Status</p>
+            <span class="<%= item.status_comentario_E.toLowerCase() === 'resolvido' ? 'resolvido' : 'pendente' %>">
+              <%= item.status_comentario_E %>
+            </span>
+          </div>
+          <div class="comentario-data">
+            <p>Data</p>
+            <span>
+              <%= new Date(item.data_comentario_E).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) %>
+            </span>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="text-center">Nenhum comentário registrado.</p>
+    <% } %>
+
+
+  
+</body>
+</html>
